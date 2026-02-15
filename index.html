@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hindi Education Quiz</title>
+    <style>
+      /* Hide Kimi Agent Widget Permanently */
+      [kimi-agent],
+      [data-kimi-agent],
+      .kimi-agent,
+      #kimi-agent,
+      .kimi-widget,
+      #kimi-widget,
+      [class*="kimi-agent"],
+      [id*="kimi-agent"],
+      [class*="kimi-widget"],
+      [id*="kimi-widget"],
+      [class*="KimiAgent"],
+      [id*="KimiAgent"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        z-index: -9999 !important;
+        position: absolute !important;
+        left: -9999px !important;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-Can93-T-.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cx9JPLy0.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Hide Kimi Agent widget permanently
+      (function() {
+        function hideKimiAgent() {
+          const selectors = [
+            '[kimi-agent]',
+            '[data-kimi-agent]',
+            '.kimi-agent',
+            '#kimi-agent',
+            '.kimi-widget',
+            '#kimi-widget',
+            '[class*="kimi-agent"]',
+            '[id*="kimi-agent"]',
+            '[class*="kimi-widget"]',
+            '[id*="kimi-widget"]',
+            '[class*="KimiAgent"]',
+            '[id*="KimiAgent"]'
+          ];
+          
+          selectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => {
+              el.style.display = 'none';
+              el.style.visibility = 'hidden';
+              el.style.opacity = '0';
+              el.style.pointerEvents = 'none';
+            });
+          });
+        }
+        
+        // Run immediately and periodically
+        hideKimiAgent();
+        setInterval(hideKimiAgent, 500);
+        
+        // Also run when DOM changes
+        const observer = new MutationObserver(hideKimiAgent);
+        observer.observe(document.body, { childList: true, subtree: true });
+      })();
+    </script>
+  </body>
+</html>
